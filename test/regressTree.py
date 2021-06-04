@@ -8,6 +8,9 @@ X = np.sort(10 * rng.rand(160, 1), axis=0)
 y = np.sin(X).ravel()
 y[::5] += 2 * (0.5 - rng.rand(32)) # 每五个点增加一次噪音
 
+print(X)
+print(y)
+
 # Fit regression model
 regr_1 = DecisionTreeRegressor(max_depth=2)
 regr_2 = DecisionTreeRegressor(max_depth=5)
@@ -21,6 +24,8 @@ X_test = np.arange(0.0, 10.0, 0.01)[:, np.newaxis]
 y_1 = regr_1.predict(X_test)
 y_2 = regr_2.predict(X_test)
 y_3 = regr_3.predict(X_test)
+
+tmp = ['%.5f'%x for x in list(y_3)]
 
 # Plot the results
 plt.figure()

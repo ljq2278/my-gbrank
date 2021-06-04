@@ -17,7 +17,7 @@ x_train, x_test, y_train, y_test = train_test_split(X, y)
 gbr = GradientBoostingClassifier(n_estimators=3000, max_depth=2, min_samples_split=2, learning_rate=0.1)
 gbr.fit(x_train, y_train.ravel())
 joblib.dump(gbr, 'train_model_result4.m')   # 保存模型
-
+# joblib.load()
 y_gbr = gbr.predict(x_train)
 y_gbr1 = gbr.predict(x_test)
 acc_train = gbr.score(x_train, y_train)
